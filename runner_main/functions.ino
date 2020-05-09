@@ -10,24 +10,26 @@ void ultrasonic_check() {
   digitalWrite(trigPin, LOW);
   duration = pulseIn(echoPin, HIGH);
   distance = (duration/2) / 29.1;
-
+  delay(1);
   // Serial.print(distance);
   // Serial.println(" cm");
   // delay (100);
 }
 
 void LED_Cat_Present_Test() {
-  if (distance < 30) {
+  if (distance > 45) {
     digitalWrite(led,HIGH);
     delay(300);
     digitalWrite(led, LOW);
     delay(300);
-    Present = 1;
+    Present = 0;
+    delay(1);
   }
 
   else {
     digitalWrite(led,LOW);
-    Present = 0;
+    Present = 1;
+    delay(1);
   }
 }
 
@@ -43,12 +45,12 @@ void runStepperBase (float length, char direct){
   }else if ( direct == 'A' ){
     baseStepper.step(-steps);
   }
-
+  delay(1);
 }
 
 void runStepperArm (int motorSpeed){
 
   armStepper.setSpeed(motorSpeed);
   armStepper.step(50000);
-
+  delay(1);
 }
