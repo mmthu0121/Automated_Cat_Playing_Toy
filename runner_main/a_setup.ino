@@ -12,7 +12,11 @@ void setup() {
   pinMode(echoPin, INPUT);
 
   //motion sensor
+  pinMode(inputPin, INPUT);     // declare sensor as input
 
+  //motor
+   AFMS.begin();
+   baseStepper->setSpeed(10);
+   armStepper->setSpeed(10);
 
-  
 }
