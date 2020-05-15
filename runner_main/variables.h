@@ -27,12 +27,14 @@ Adafruit_MotorShield AFMS = Adafruit_MotorShield();
 const int stepsPerRevolution = 200;
 
 //Stepper at the base
-Adafruit_StepperMotor *baseStepper = AFMS.getStepper(200, 2);
+Adafruit_StepperMotor *baseStepper = AFMS.getStepper(200, 1);
+baseStepper.setmaxspeed(40);    //speed = DESIRED_RPM * STEPS_PER_REV / 60, so 12rpm
 
 // Stepper baseStepper(stepsPerRevolution, 21,22,25,26);
 int stepCount = 0;
 
 //Stepper at the arm
 Adafruit_StepperMotor *armStepper = AFMS.getStepper(200, 2);
+armStepper.setmaxspeed(40);
 
 // Stepper armStepper(stepsPerRevolution, 23,24,29,30);
